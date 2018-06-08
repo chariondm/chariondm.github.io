@@ -1,0 +1,71 @@
+h1, h2, p, button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  font-family: "ITC Serif Gothic", Lato;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+img {
+  width: 100%;
+}
+
+/*
+* URL: https://cssanimation.rocks/starwars/
+*/
+
+/* General styles and layout */
+body {
+  background: #000 url(https://cssanimation.rocks/demo/starwars/images/bg.jpg);
+  line-height: 1;
+}
+
+button {
+  left: 40%;
+  position: absolute;
+  border: #fff solid 1px;
+  background-color: #000;
+  font-size: 1.8em;
+  padding: 0.2em;
+}
+
+.starwars-demo, .planet-info {
+  height: 17em;
+  left: 50%;
+  position: absolute;
+  top: 25%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  width: 34em;
+}
+
+.planet-info div {
+  border: #fff solid 3px;
+}
+
+.planet-info {
+  top: 60%;
+  letter-spacing: 0.2em;
+}
+
+.starwars-demo h1 {
+  font-size: 2.25em;
+  letter-spacing: 0.4em;
+}
+
+.planet-info h2 {
+  border: #fff solid 3px;
+  border-bottom: 0px;
+  padding: 0.2em;
+  font-size: 1.8em;
+}
+
+.planet-info p {
+  font-size: 1.1em;
+  margin: 1em;
+}
+
+

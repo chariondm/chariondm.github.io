@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Star Wars Wrapper Test</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div class="starwars-demo">
+        <img src="https://cssanimation.rocks/demo/starwars/images/star.svg" alt="Star" class="star">
+        <h1>Desafio B2W</h1>
+        <img src="https://cssanimation.rocks/demo/starwars/images/wars.svg" alt="Wars" class="wars">
+  </div>
+  <div id="app" v-if="planet" class="planet-info">
+    <h2>{{planet.name}}</h2>
+    <div>
+      <p>population: {{planet.population}}</p>
+      <p>climate : {{planet.climate}}</p>
+      <p>terrain: {{planet.terrain}}</p>
+      <p>featured in {{planet.films.length}} films</p>
+    </div>
+    <br>
+    <button v-on:click="getPlanet" v-bind:disabled="isBtnDisabled">NEXT</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+  <script src="scripts/fetch.js"></script>
+  <script src="scripts/swapi-wrapper.umd.min.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        planet: null,
+        isBtnDisabled: false
+      },
+      created: function () {
+        this.getPlanet();
+      },
+      methods: {
+        getPlanet: function () {
+          var self = this;
+          self.isBtnDisabled = true;
+
+          var prom = new Promise(function(resolve, reject) {
+            resolve(swApiWrapper.getPlanetRandom());
+          });
+
+          prom.then(function(data) {
+            self.planet = data;
+            self.isBtnDisabled = false;
+          });
+
+        }
+      }
+    });
+</script>
+</body>
+</html>
